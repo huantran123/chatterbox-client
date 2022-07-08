@@ -25,13 +25,25 @@ var App = {
     setInterval(function() {
       App.fetch(App.stopSpinner);
       window.alert = function() {};
+      // console.log(Messages._data);
+      // console.log(Rooms._data);
+      // Add new message to the chat section
       if (Messages._diffData.length !== 0) {
         for (var i = Messages._diffData.length - 1; i >= 0; i--) {
           MessagesView.renderMessage(Messages._diffData[i]);
         }
       }
-    }, 1000);
 
+      // Update room dropdown
+      if (Object.keys(Rooms._diffData).length !== 0) {
+        for (var room in Rooms._diffData) {
+          RoomsView.$select.append($('<option>', {
+            value: room,
+            text: room
+          }));
+        }
+      }
+    }, 1000);
   },
 
   fetch: function(callback = ()=>{}) {
@@ -44,7 +56,7 @@ var App = {
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
       Messages._updateMessages(data);
-
+      Rooms._updateRoom(data);
     });
   },
 

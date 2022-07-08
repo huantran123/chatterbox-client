@@ -19,14 +19,14 @@ var FormView = {
     var textField = document.getElementById('message');
     var text = textField.value;
     var username = App.username;
-    var roomname = '';
+    var roomname = RoomsView.currentRoom;
     var mess = {username, text, roomname};
 
     Parse.create(mess);
 
     textField.value = '';
     App.startSpinner();
-    App.fetch(App.stopSpinner);
+    // App.fetch(App.stopSpinner);
 
     // console.log('click!');
   },
