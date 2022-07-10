@@ -4,7 +4,7 @@
 
 var FormView = {
 
-  $form: $('form'),
+  $form: $('#send'),
 
   initialize: function() {
     FormView.$form.on('submit', FormView.handleSubmit);
@@ -19,7 +19,7 @@ var FormView = {
     var textField = document.getElementById('message');
     var text = textField.value;
     var username = App.username;
-    var roomname = RoomsView.currentRoom;
+    var roomname = (RoomsView.currentRoom === 'All Messages') ? null : RoomsView.currentRoom;
     var mess = {username, text, roomname};
 
     Parse.create(mess);

@@ -14,10 +14,6 @@ var MessagesView = {
   render: function() {
     // TODO: Render _all_ the messages.
     Parse.readAll((data) => {
-      // var html = '';
-      // _.each(data, (message) => {
-      //   html += MessagesView.renderMessage(message);
-      // });
       for (var i = data.length - 1; i >= 0; i--) {
         MessagesView.renderMessage(data[i]);
       }

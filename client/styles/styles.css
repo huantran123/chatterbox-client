@@ -88,3 +88,41 @@ form input[type=text] {
     background-color: #0090da;
 }
 
+
+
+
+.add-room {
+    box-sizing: border-box;
+}
+.add-room {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.formPopup {
+    display: none;
+    position: fixed;
+    left: 45%;
+    top: 5%;
+    transform: translate(-50%, 5%);
+    z-index: 9;
+    height: 230px;
+}
+
+.formContainer {
+    max-width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border: 3px solid #999999;
+    margin-bottom: 0px;
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.formContainer input[type=text] {
+    width: 280px;
+    display: block;
+    margin-bottom: 20px;
+}

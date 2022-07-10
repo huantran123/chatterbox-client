@@ -36,7 +36,15 @@ var Rooms = {
       Rooms._diffData = {};
     }
 
-    //access room name add roomname to a new set (data.add)
+    // Update room dropdown
+    if (Object.keys(Rooms._diffData).length !== 0) {
+      for (var room in Rooms._diffData) {
+        RoomsView.$select.append($('<option>', {
+          value: room,
+          text: room
+        }));
+      }
+    }
 
   }
 

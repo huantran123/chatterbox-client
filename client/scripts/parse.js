@@ -36,6 +36,31 @@ var Parse = {
         console.error('chatterbox: Failed to fetch messages', error);
       }
     });
+  },
+
+  // escape: function() {
+  //   var tagsToReplace = {
+  //     '&': '&amp;',
+  //     '<': '&lt;',
+  //     '>': '&gt;'
+  //   };
+  //   return this.replace(/[&<>]/g, function(tag) {
+  //     return tagsToReplace[tag] || tag;
+  //   });
+  // },
+
+  escape: function(string) {
+    String.prototype.escape = function() {
+      var tagsToReplace = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;'
+      };
+      return this.replace(/[&<>]/g, function(tag) {
+        return tagsToReplace[tag] || tag;
+      });
+    };
+    return string.escape();
   }
 
 };

@@ -37,5 +37,21 @@ var Messages = {
       Messages._diffData = [];
     }
 
+    // Add new message to the chat section
+    if (Messages._diffData.length !== 0) {
+      for (var i = Messages._diffData.length - 1; i >= 0; i--) {
+        // if (RoomsView.currentRoom === 'All') {
+        //   MessagesView.renderMessage(Messages._diffData[i]);
+        // } else if (RoomsView.currentRoom === Messages._data[i].roomname) {
+        //   MessagesView.renderMessage(Messages._diffData[i]);
+        // }
+        if (RoomsView.currentRoom === 'All Messages') {
+          MessagesView.renderMessage(Messages._diffData[i]);
+        } else if (RoomsView.currentRoom === Messsages._data[i].roomname) {
+          MessagesView.renderMessage(Messages._diffData[i]);
+        }
+      }
+    }
+
   }
 };

@@ -20,6 +20,19 @@
         window.location.search = search;
       }
     </script>
+    <script>
+      String.prototype.escape = function() {
+        var tagsToReplace = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;'
+        };
+        return this.replace(/[&<>]/g, function(tag) {
+            return tagsToReplace[tag] || tag;
+        });
+      };
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -27,15 +40,25 @@
       <div class="spinner"><img src="client/images/spiffygif_46x46.gif"></div>
       <div id="rooms">
         Room:
-        <select></select>
-        <!-- <form action="#" id="roomname" method="post">
-          <input type="text" name="message" id="message" placeholder="Put in the new room name"/>
-          <input type="submit" name="submit" class="submit" value="Add room"/>
-        </form> -->
-        <button>Add Room</button>
+        <select>
+          <!-- <option value="All">All</option> -->
+          <option value="All Messages">All Messages</option>
+        </select>
+        <button id="add-room-btn">Add Room</button>
+        <div class="add-room">
+          <div class="formPopup" id="popupForm">
+            <form action="#" class="formContainer" id="add-room-form">
+              <h2>Enter a new room name</h2>
+              <input type="text" id="roomname" placeholder="Room Name" name="roomname" required>
+              <button type="button" class="btn cancel" onclick="RoomsView.closePopUp()">Close</button>
+              <input type="submit" name="submit" class="btn" value="Add Room"/>
+            </form>
+          </div>
+        </div>
       </div>
+
       <form action="#" id="send" method="post">
-        <input type="text" name="message" id="message" placeholder="Put you message"/>
+        <input type="text" name="message" id="message" placeholder="Put your message"/>
         <input type="submit" name="submit" class="submit"/>
       </form>
     </div>

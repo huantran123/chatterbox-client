@@ -8,10 +8,12 @@ var MessageView = {
   render: _.template(
     '<div class = "chat">' +
       '<h3 class = "username">' +
-        '<%= username %> :' +
+        // '<%= Parse.escape(username) %> :' +
+        '<%= username.escape() %> :' +
       '</h3>' +
       '<p class = "message-text">' +
-        '<%= text %>' +
+        // '<%= Parse.escape(text) %>' +
+        '<%= text.escape() %>' +
       '</p>' +
     '</div>'
   )
