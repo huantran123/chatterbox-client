@@ -25,8 +25,10 @@ var App = {
     setInterval(function() {
       App.fetch(App.stopSpinner);
       window.alert = function() {};
-      console.log(Messages._data);
+      Friends.changeColor();
+      // console.log(Messages._data);
       // console.log(Rooms._data);
+      // console.log(Friends._data);
 
     }, 1000);
   },

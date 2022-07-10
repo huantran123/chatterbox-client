@@ -6,8 +6,8 @@ var MessageView = {
   // here: https://underscorejs.org/#template.
   // TODO: Update this template accordingly.
   render: _.template(
-    '<div class = "chat">' +
-      '<h3 class = "username">' +
+    '<div class = "chat <%= github_handle %>">' +
+      '<h3 class = "username <%= github_handle %>">' +
         // '<%= Parse.escape(username) %> :' +
         '<%= username.escape() %> :' +
       '</h3>' +

@@ -126,3 +126,8 @@ form input[type=text] {
     display: block;
     margin-bottom: 20px;
 }
+
+
+.username {
+    cursor: pointer;
+}

@@ -9,6 +9,7 @@ var MessagesView = {
     // TODO: Perform any work which needs to be done
     // when this view loads.
     MessagesView.render();
+    MessagesView.$chats.on('click', MessagesView.handleClick);
   },
 
   render: function() {
@@ -17,6 +18,7 @@ var MessagesView = {
       for (var i = data.length - 1; i >= 0; i--) {
         MessagesView.renderMessage(data[i]);
       }
+      Friends.changeColor();
     });
   },
 
@@ -31,5 +33,16 @@ var MessagesView = {
   handleClick: function(event) {
     // TODO: handle a user clicking on a message
     // (this should add the sender to the user's friend list).
+    var target = event.target;
+    if (target.classList.item(0) !== 'username') {
+      return;
+    }
+    var gitHubHandle = target.classList.item(1);
+    if (Friends.isFriend(gitHubHandle)) {
+      Friends.removeFriend(gitHubHandle);
+      $('#chats > .' + gitHubHandle).removeClass('friend');
+    } else {
+      Friends.addFriend(gitHubHandle);
+    }
   }
 };
